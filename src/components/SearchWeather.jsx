@@ -2,24 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 
 function SearchWeather() {
-    // const [search,setSearch] = useState("london")
-    // const [data,setData] = useState([]);
-    // const [input,setInput] = useState("");
-    // let componentMounted = true;
-    // useEffect(() => {
-    //     const fetchWeather = async()=>{
-    //         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=2062ceaad983d4954b156dd8184d1074`);
-    //         if(componentMounted){
-    //             setData(await response.json());
-    //             console.log(data)
-    //         }
-    //         return () =>{
-    //             componentMounted=false;
-    //         }
-    //     }
-    // fetchWeather();
-    // }, []);
-    // onChange={inputHandler}    
+     
     const [apiData, setApiData] = useState({});
     const [getState, setGetState] = useState('london');
     const [state, setState] = useState('london');
@@ -31,14 +14,6 @@ function SearchWeather() {
             .then((data) => setApiData(data));
     }, [apiUrl]);
 
-    // const inputHandler = (event) => {
-    //     setGetState(event.target.value);
-    // };
-
-    // const submitHandler = () => {
-
-    //     setState(getState);
-    // };
     const submithandle =(event) =>{
         event.preventDefault();
         setState(getState)
@@ -56,19 +31,9 @@ function SearchWeather() {
   
     const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric' });
   
-    // let date = d.getDate();
+    
     let year = today.getFullYear();
-    // // let month = d.getMonth();
-    // let month = d.toLocaleString('default',{month:'long'});
-    // let day = d.toLocaleString('default',{weekday:'long'});
-
-    // let time = d.toLocaleString(
-    //     [,{
-    //         hour:'2-digit',
-    //         minute:'2-digit',
-    //         second:'2-digit'
-    //     }]
-    // );
+    
 
     let emoji = null;
     if(typeof apiData.main!='undefined'){
